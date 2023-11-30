@@ -6,15 +6,15 @@ import { ListThoughtsComponent } from './components/thoughts/list-thoughts/list-
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'list-thoughts',
+    redirectTo: 'listar-pensamentos',
     pathMatch: 'full',
   },
   {
-    path: 'create-thoughts',
+    path: 'criar-pensamento',
     component: CreateThoughtsComponent,
   },
   {
-    path: 'list-thoughts',
+    path: 'listar-pensamentos',
     component: ListThoughtsComponent,
   },
 ];

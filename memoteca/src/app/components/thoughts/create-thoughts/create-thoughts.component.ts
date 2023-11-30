@@ -21,7 +21,7 @@ export class CreateThoughtsComponent implements OnInit {
 
   createThoughts() {
     this.service.createNewThought(this.thought).subscribe(() => {
-      this.router.navigate(['/list-thoughts']);
+      this.router.navigate(['/listar-pensamentos']);
     });
   }
 
