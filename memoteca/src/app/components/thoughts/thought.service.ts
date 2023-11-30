@@ -14,4 +14,8 @@ export class ThoughtService {
   getAllThoughts(): Observable<IThought[]> {
     return this.http.get<IThought[]>(this.API);
   }
+
+  createNewThought(data: IThought): Observable<IThought> {
+    return this.http.post<IThought>(this.API, data);
+  }
 }

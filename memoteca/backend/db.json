@@ -17,6 +17,36 @@
       "conteudo": "Angular é o melhor'",
       "autoria": "Dev Alura",
       "modelo": "modelo3"
+    },
+    {
+      "conteudo": "A imaginação é mais importante que o conhecimento, porque o conhecimento é limitado, ao passo que a imaginação abrange o mundo inteiro.",
+      "autoria": "Albert Einstein ",
+      "modelo": "modelo2",
+      "id": 4
+    },
+    {
+      "conteudo": "A imaginação é mais importante que o conhecimento, porque o conhecimento é limitado, ao passo que a imaginação abrange o mundo inteiro.",
+      "autoria": "Albert Einstein ",
+      "modelo": "modelo2",
+      "id": 5
+    },
+    {
+      "conteudo": "A imaginação é mais importante que o conhecimento, porque o conhecimento é limitado, ao passo que a imaginação abrange o mundo inteiro.",
+      "autoria": "Albert Einstein ",
+      "modelo": "modelo2",
+      "id": 6
+    },
+    {
+      "conteudo": "A imaginação é mais importante que o conhecimento, porque o conhecimento é limitado, ao passo que a imaginação abrange o mundo inteiro.",
+      "autoria": "Albert Einstein ",
+      "modelo": "modelo2",
+      "id": 7
+    },
+    {
+      "conteudo": "É preferível suportar os males que temos do que voar para aqueles que não conhecemos.",
+      "autoria": "William Shakespeare",
+      "modelo": "modelo3",
+      "id": 8
     }
   ]
 }
