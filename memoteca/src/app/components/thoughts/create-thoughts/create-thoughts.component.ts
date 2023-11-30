@@ -21,7 +21,5 @@ export class CreateThoughtsComponent implements OnInit {
     alert('Pensamento criado!');
   }
 
-  cancelButton() {
-    alert('Fechar formulario');
-  }
+  cancelButton() {}
 }
