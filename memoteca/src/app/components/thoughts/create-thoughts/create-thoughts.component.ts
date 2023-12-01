@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { IThought } from '../thought';
+import { Component, OnInit, Input } from '@angular/core';
 import { ThoughtService } from '../thought.service';
 import { Router } from '@angular/router';
+import { onlyLowercaseLetters } from './thoughts-validators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-thoughts',
@@ -9,20 +10,49 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-thoughts.component.css'],
 })
 export class CreateThoughtsComponent implements OnInit {
-  constructor(private service: ThoughtService, private router: Router) {}
+  form!: FormGroup;
 
-  thought: IThought = {
-    conteudo: '',
-    autoria: '',
-    modelo: '',
-  };
+  constructor(
+    private service: ThoughtService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      conteudo: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(/(.|\s)*\S(.|\s)*/),
+        ]),
+      ],
+      autoria: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(3),
+          onlyLowercaseLetters,
+        ]),
+      ],
+      modelo: [''],
+    });
+  }
 
   createThoughts() {
-    this.service.createNewThought(this.thought).subscribe(() => {
-      this.router.navigate(['/listar-pensamentos']);
-    });
+    if (this.form.valid) {
+      this.service.createNewThought(this.form.value).subscribe(() => {
+        this.router.navigate(['/listar-pensamentos']);
+      });
+    }
+  }
+
+  enableButton(): string {
+    if (this.form.valid) {
+      return 'botao';
+    } else {
+      return 'botao__desabilitado';
+    }
   }
 
   cancelButton() {}
