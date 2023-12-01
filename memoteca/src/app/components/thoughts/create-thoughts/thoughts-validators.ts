@@ -1,0 +1,11 @@
+import { AbstractControl } from '@angular/forms';
+
+export const onlyLowercaseLetters = (control: AbstractControl) => {
+  const autoria = control.value as string;
+
+  if (autoria !== autoria?.toLowerCase()) {
+    return { minusculo: true };
+  } else {
+    return null;
+  }
+};
