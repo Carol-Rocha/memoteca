@@ -13,6 +13,7 @@ export class DeleteThoughtComponent implements OnInit {
     conteudo: '',
     autoria: '',
     modelo: '',
+    favorito: false,
   };
 
   constructor(

@@ -11,12 +11,35 @@ export class ThoughtService {
 
   constructor(private http: HttpClient) {}
 
-  getAllThoughts(page: number, filter: string): Observable<IThought[]> {
+  getAllThoughts(
+    page: number,
+    filter: string,
+    favorite: boolean
+  ): Observable<IThought[]> {
     const itemsPerPage = 6;
 
     let params = new HttpParams()
       .set('_page', page)
       .set('_limit', itemsPerPage);
+
+    if (filter.trim().length > 2) {
+      params = params.set('q', filter);
+    }
+
+    if (favorite) {
+      params = params.set('favorito', true);
+    }
+
+    return this.http.get<IThought[]>(this.API, { params: params });
+  }
+
+  getFavoriteThoughts(page: number, filter: string): Observable<IThought[]> {
+    const itemsPerPage = 6;
+
+    let params = new HttpParams()
+      .set('_page', page)
+      .set('_limit', itemsPerPage)
+      .set('favorito', true);
 
     if (filter.trim().length > 2) {
       params = params.set('q', filter);
@@ -33,6 +56,12 @@ export class ThoughtService {
     const url = `${this.API}/${data.id}`;
 
     return this.http.put<IThought>(url, data);
+  }
+
+  changeFavoriteIcon(data: IThought): Observable<IThought> {
+    data.favorito = !data.favorito;
+
+    return this.updateThought(data);
   }
 
   deleteThoughtById(id: number): Observable<IThought> {
