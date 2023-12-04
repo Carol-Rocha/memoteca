@@ -41,6 +41,7 @@ export class UpdateThoughtComponent implements OnInit {
             ]),
           ],
           modelo: [pensamento.modelo],
+          favorito: [pensamento.favorito],
         });
       });
     }
