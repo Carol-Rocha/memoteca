@@ -9,28 +9,39 @@ import { ThoughtService } from '../thought.service';
 })
 export class ListThoughtsComponent implements OnInit {
   thoughtsList: IThought[] = [];
-
   currentPage: number = 1;
-
   existMoreThoughts: boolean = true;
+  filter: string = '';
 
   constructor(private service: ThoughtService) {}
 
   ngOnInit(): void {
-    this.service.getAllThoughts(this.currentPage).subscribe((thoughtsList) => {
-      this.thoughtsList = thoughtsList;
-    });
+    this.service
+      .getAllThoughts(this.currentPage, this.filter)
+      .subscribe((thoughtsList) => {
+        this.thoughtsList = thoughtsList;
+      });
   }
 
   loadMoreThoughts() {
     this.service
-      .getAllThoughts(++this.currentPage)
+      .getAllThoughts(++this.currentPage, this.filter)
       .subscribe((thoughtsList) => {
         this.thoughtsList.push(...thoughtsList);
 
         if (!thoughtsList.length) {
           this.existMoreThoughts = false;
         }
+      });
+  }
+
+  searchThoughts() {
+    this.existMoreThoughts = true;
+    this.currentPage = 1;
+    this.service
+      .getAllThoughts(this.currentPage, this.filter)
+      .subscribe((thoughtsList) => {
+        this.thoughtsList = thoughtsList;
       });
   }
 }
