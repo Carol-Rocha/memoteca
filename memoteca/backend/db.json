@@ -41,6 +41,18 @@
       "autoria": "william shakespeare",
       "modelo": "modelo2",
       "id": 12
+    },
+    {
+      "conteudo": "É preferível suportar os males que temos do que voar para aqueles que não conhecemos.",
+      "autoria": "william shakespeare",
+      "modelo": "modelo2",
+      "id": 13
+    },
+    {
+      "conteudo": "É preferível suportar os males que temos do que voar para aqueles que não conhecemos.",
+      "autoria": "edward",
+      "modelo": "modelo2",
+      "id": 14
     }
   ]
 }
