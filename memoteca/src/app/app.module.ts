@@ -12,6 +12,7 @@ import { CardThoughtComponent } from './components/thoughts/card-thought/card-th
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteThoughtComponent } from './components/thoughts/delete-thought/delete-thought.component';
 import { UpdateThoughtComponent } from './components/thoughts/update-thought/update-thought.component';
+import { LoadMoreButtonComponent } from './components/thoughts/list-thoughts/load-more-button/load-more-button.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { UpdateThoughtComponent } from './components/thoughts/update-thought/upd
     CardThoughtComponent,
     DeleteThoughtComponent,
     UpdateThoughtComponent,
+    LoadMoreButtonComponent,
   ],
   imports: [
     BrowserModule,
